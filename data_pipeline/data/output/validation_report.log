@@ -1,0 +1,15 @@
+========================================
+      Data Validation Summary Report
+========================================
+Total Records Processed: 10
+Clean Records: 3
+Junk Records: 7
+----------------------------------------
+Error Distribution:
+  - Duplicate record based on user_id, email: 2 records
+  - Invalid format for 'email': 2 records
+  - Invalid format for 'phone_number': 1 records
+  - 'age' out of range (18-120): 2 records
+  - 'email' cannot be null: 1 records
+  - 'user_id' cannot be null: 1 records
+========================================

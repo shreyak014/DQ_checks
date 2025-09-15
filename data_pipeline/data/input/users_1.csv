@@ -1,0 +1,8 @@
+user_id,user_name,email,phone_number,age,signup_date
+101,Alice,alice@example.com,+11234567890,30,2023-01-15
+102,Bob,bob@example.com,,25,2023-02-20
+103,Charlie,charlie@invalid,12345,17,2023-03-10
+104,David,david@example.com,+19876543210,,2023-04-05
+101,Alice Duplicate,alice@example.com,+11234567890,30,2023-01-15
+202,Peter,peter@example.com,+1234567891,150,2023-01-16
+203,John,,+1234567892,30,2023-01-17

@@ -1,0 +1,54 @@
+# --------------------------------------------------
+# Configuration for the Data Validation Pipeline
+# --------------------------------------------------
+
+# --- File Handler Settings ---
+file_settings:
+  input_path: 'data_pipeline/data/input'
+  output_path: 'data_pipeline/data/output'
+  clean_filename: 'clean_data'
+  junk_filename: 'junk_data'
+  report_filename: 'validation_report.log'
+  output_format: 'parquet' # Supported formats: 'csv', 'parquet'
+
+# --- Validation Rules ---
+validation_rules:
+  # Define the expected schema and rules for each column
+  # - name: The column name.
+  # - dtype: Expected data type (int, float, str, datetime).
+  # - nullable: If 'false', the column cannot contain missing values.
+  # - format: A regex pattern for format validation (e.g., email, phone).
+  # - range: Min/max values for numeric columns.
+  schema:
+    - name: user_id
+      dtype: int
+      nullable: false
+    - name: user_name
+      dtype: str
+      nullable: false
+    - name: email
+      dtype: str
+      nullable: false
+      format: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    - name: phone_number
+      dtype: str
+      nullable: true
+      format: '^\+?[1-9]\d{8,14}$' # E.164 format, 9 to 15 digits total
+    - name: age
+      dtype: int
+      nullable: true
+      range:
+        min: 18
+        max: 120
+    - name: signup_date
+      dtype: datetime
+      nullable: false
+
+  # List of columns to use for identifying duplicate records
+  duplicate_check_columns: ['user_id', 'email']
+
+  # Reference Integrity Check (Example - can be extended)
+  # reference_checks:
+  #   - column: country_code
+  #     reference_file: 'data/reference/countries.csv'
+  #     reference_column: 'code'
