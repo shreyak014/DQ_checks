@@ -1,0 +1,14 @@
+
+sftp:
+  host: "sftp.example.com"
+  port: 22
+  username: "my-sftp-user"
+  # Set to true if using a private key, false for password-based auth
+  use_private_key: true
+  # Example for GCP Secret Manager integration
+  private_key_secret_name: "projects/your-gcp-project-id/secrets/sftp-private-key/versions/latest"
+  root_path: "/files/incoming"
+
+gcs:
+  bucket: "my-gcs-bucket-for-sftp-listings"
+  prefix: "sftp-listings/"
