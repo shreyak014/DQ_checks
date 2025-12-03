@@ -1,0 +1,5 @@
+
+paramiko
+google-cloud-storage
+apache-airflow
+pysftp
